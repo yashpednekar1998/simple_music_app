@@ -1,0 +1,113 @@
+body{
+    background-image: linear-gradient(45Deg, red,black);
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+   }
+ 
+html{
+    font-size: 67.2%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    text-decoration: dotted;
+    color: black;
+    text-shadow: 4px 4px red;
+}
+.main_div{
+    width: 100vw;
+    height: 100vh;
+    background: #fffefe00;
+    display: grid;
+    place-items: center;
+    
+}
+.music_container{
+    width: 35rem;
+    height: 55rem;
+    background: #09beb5;
+    border-radius: 2rem;
+    box-shadow: 0 1.6rem 4rem 1.5rem rgba(20, 20, 20, 0.801);
+    text-align: center;
+    padding: 3rem;
+    
+}
+.music_container #title{
+    text-transform: capitalize;
+    letter-spacing: 0.2rem;
+    color: #010408;
+    margin: 0.2rem 0 0.5rem 0;
+    text-shadow: 0 0.3rem 0.5rem rgba(240, 6, 6, 0.603);
+    font-size: 2.5rem;
+}
+.music_container #artist{
+    color: #070707;
+    text-transform: uppercase;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 4rem;
+    font-weight: 300;
+    font-family: cursive;
+}
+.img_container{
+width: 25rem;
+height: 25rem;
+margin: auto;
+}
+img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 1.2rem 3rem 0.5rem  rgba(66, 51, 51, 0.6);
+}
+.music_controls{
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 5rem;
+}
+.music_controls .fas{
+    cursor: pointer;
+    color: #fffdfd;
+    font-size: 2rem;
+    filter: drop-shadow(0 1.2rem 3rem 0.5rem rgba(0,0,0,0.4));
+    display: flex;
+    align-items: center;
+}
+.music_controls .fas:hover{
+    color: rgb(7, 7, 7);
+}
+.music_controls .mian_button{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: #111;
+    color: #f6f6f6;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.music_controls .mian_button:hover{
+    background: #f6f6f6;
+    color: #111;
+    box-shadow: 0 1.2rem 3rem 0.5rem  rgba(66, 51, 51, 0.6);
+}
+
+/* Add Animation For Image Rotate */
+
+.animat{
+    animation: rotateplayer 3s linear infinite;
+}
+
+@keyframes rotateplayer{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

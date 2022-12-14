@@ -1,0 +1,101 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="with=device-width, initial-scale=1.0">
+<title>music</title>  
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="stylesheet"  type="text/css" href="index.css">
+</head> 
+<body>
+    <div class="main_div">
+        <div class="music_container">
+            <h1 id="title">TheTrain</h1>
+            <h2 id="artist">Arijit Singh</h2>
+            <div class="img_container">
+                <img src="images/TheTrain.jpg">
+                </div>
+            <audio src="music/TheTrain.mp3"></audio>
+          <!--controls-->
+          <div class="music_controls">
+            <i class="fas fa-backward" id="prev" title="previous"></i>
+            <i class="fas fa-play mian_button" id="play" title="play"></i>
+            <i class="fas fa-forward" id="next" title="next"></i>
+</div>
+        </div>
+    </div>
+    <script>
+      const music = document.querySelector("audio");
+      const img =document.querySelector("img");
+      const play = document.getElementById("play");
+      const artist = document.getElementById("artist");
+      const title = document.getElementById("title");
+      const prev = document.getElementById("prev");
+      const next = document.getElementById("next");
+      const songs=[{
+        name:'TheTrain',
+        title:'TheTrain',
+        artist:'Arijit Singh'
+      },
+      {
+        name:'AllaHafiz',
+        title:' AllaHafiz',
+        artist:'pritam and kk'
+      },
+      {
+        name:'TeraMeraRishta',
+        title:'TeraMeraRishta',
+        artist:'Mustafa Zahid'
+      },
+      {
+        name:'SawanAayaHai',
+        title:'SawanAayaHai',
+        artist:'Arjit Singh'
+      },
+    ];
+      let isplaying=false;
+      //for play function
+const playMusic=()=>{
+  isplaying=true;
+  music.play();
+  play.classList.replace("fa-play", "fa-pause");
+  img.classList.add("animat");
+}
+//for pause function
+     const pauseMusic=()=>{
+  isplaying=false;
+  music.pause();
+  play.classList.replace( "fa-pause","fa-play");
+  img.classList.remove("animat");
+}
+play.addEventListener("click",()=>{
+if(isplaying){
+  pauseMusic();
+}else{
+playMusic();
+}
+});
+//changing the music data
+const loadsong = (songs) => {
+            title.textContent = songs.title;
+            artist.textContent = songs.artist;
+            music.src = "music/" + songs.name + ".mp3";
+            img.src = "images/" + songs.name + ".jpg";
+        };
+        songIndex = 3;
+        
+
+        const nextsong = () =>{
+            songIndex = (songIndex + 1) % songs.length;
+            loadsong(songs[songIndex]);
+        };
+
+        const prevsong = () =>{
+            songIndex = (songIndex - 1 + songs.length) % songs.length;
+            loadsong(songs[songIndex]);
+        };
+
+        next.addEventListener('click', nextsong);
+        prev.addEventListener('click', prevsong);
+    </script>
+</body>   
+</html>
